@@ -1,30 +1,31 @@
 {
-    "versionLabel": "1.3.1",
-    "uuid": "13371337-095a-4dd5-a158-d56764ec6f08",
     "appKeys": {},
-    "longName": "Fuzzy English Plus",
-    "versionCode": 3,
     "capabilities": [
         ""
     ],
-    "shortName": "Fuzzy UK +",
     "companyName": "HBTeicher / Mandaria Software",
-    "watchapp": {
-        "watchface": true
-    },
+    "longName": "Fuzzy English Plus",
+    "projectType": "native",
     "resources": {
         "media": [
             {
-                "type": "raw",
-                "name": "DUMMY",
-                "file": "data/resource_map.json"
+                "file": "images/menu_icon.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU_ICON",
+                "type": "png"
             },
             {
-                "menuIcon": true,
-                "type": "png",
-                "name": "IMAGE_MENU_ICON",
-                "file": "images/menu_icon.png"
+                "file": "data/resource_map.json",
+                "name": "DUMMY",
+                "type": "raw"
             }
         ]
+    },
+    "shortName": "Fuzzy UK +",
+    "uuid": "13371337-095a-4dd5-a158-d56764ec6f08",
+    "versionCode": 3,
+    "versionLabel": "1.4",
+    "watchapp": {
+        "watchface": true
     }
 }

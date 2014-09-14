@@ -189,8 +189,8 @@ void info_lines(struct tm* t, char* line1, char* line2) {
  // strcat(line1, " ");
  // strcat(line1, mon);
 
-  strftime(line1, LINE_BUFFER_SIZE, "%A • %H:%M", t);
-  strftime(line2, LINE_BUFFER_SIZE, " Week %V • %B %e", t);
+  strftime(line1, LINE_BUFFER_SIZE, "%A • Week %V", t);
+  strftime(line2, LINE_BUFFER_SIZE, "%H:%M • %B %e", t);
 
 }
 
