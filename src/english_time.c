@@ -1,10 +1,10 @@
-#include "french_time.h"
+#include "english_time.h"
 
-static const char* STR_HEURE = "past";
-static const char* STR_HEURE2 = "five p.";
-static const char* STR_MOINS = "to";
-static const char* STR_MOINS2 = "five to";
-static const char* const HEURES[] = {
+static const char* STR_HOUR = "past";
+static const char* STR_HOUR2 = "five p.";
+static const char* STR_MINS = "to";
+static const char* STR_MINS2 = "five to";
+static const char* const HOURS[] = {
 	
   "twelve",
   "one",
@@ -32,7 +32,7 @@ static const char* const MINS[] = {
   "now"
 };
 
-static const char* const JOURS[] = {
+static const char* const DAYS[] = {
   "Sunday",
   "Monday",
   "Tuesday",
@@ -74,7 +74,7 @@ void fuzzy_time(struct tm* t, char* line1, char* line2, char* line3) {
   if (hours >= 24) hours = 0;
   if (hours > 12) hours -= 12;
 
- strcat(line3, HEURES[hours]); // HOURS
+ strcat(line3, HOURS[hours]); // HOURS
 
   if (minutes >= 0 && minutes < 3) {
    if(hours >= 0 && hours <= 12) {
@@ -85,77 +85,77 @@ void fuzzy_time(struct tm* t, char* line1, char* line2, char* line3) {
 	
   else if (minutes < 8) {
     if(hours >= 0 && hours <= 12) {
-        strcat(line2, STR_HEURE);
+        strcat(line2, STR_HOUR);
     }
 	  strcat(line1, MINS[1]); // FIVE PAST
   }
 	
   else if (minutes < 13) {
     if(hours >= 0 && hours <= 12) {
-        strcat(line2, STR_HEURE);
+        strcat(line2, STR_HOUR);
     }
     strcat(line1, MINS[2]); // TEN PAST
   }
 	
   else if (minutes < 18) {
     if(hours >= 0 && hours <= 12) {
-        strcat(line2, STR_HEURE);
+        strcat(line2, STR_HOUR);
     }
     strcat(line1, MINS[3]); // QUARTER PAST
   }
 	
   else if (minutes < 23) {
     if(hours >= 0 && hours <= 12) {
-        strcat(line2, STR_HEURE);
+        strcat(line2, STR_HOUR);
     }
     strcat(line1, MINS[4]); // TWENTY PAST
   }
 	
  else if (minutes < 28) {
     if(hours >= 0 && hours <= 12) {
-        strcat(line2, STR_HEURE2);
+        strcat(line2, STR_HOUR2);
     }
     strcat(line1, MINS[4]); // TWENTY FIVE PAST
   }
 	
    else if (minutes < 33) {
     if(hours >= 0 && hours <= 12) {
-        strcat(line2, STR_HEURE);
+        strcat(line2, STR_HOUR);
     }
     strcat(line1, MINS[5]); // HALF PAST
   }
 	
 	 else if (minutes < 38) {
     if(hours >= 0 && hours <= 12) {
-        strcat(line2, STR_MOINS2);
+        strcat(line2, STR_MINS2);
     }
     strcat(line1, MINS[4]); // TWENTY FIVE TO
   }
 	
 	 else if (minutes < 43) {
     if(hours >= 0 && hours <= 12) {
-        strcat(line2, STR_MOINS);
+        strcat(line2, STR_MINS);
     }
     strcat(line1, MINS[4]); // TWENTY  TO
   }
 	
   	 else if (minutes < 48) {
     if(hours >= 0 && hours <= 12) {
-        strcat(line2, STR_MOINS);
+        strcat(line2, STR_MINS);
     }
     strcat(line1, MINS[3]); // QUARTER TO
   }
 	
 	 else if (minutes < 53) {
     if(hours >= 0 && hours <= 12) {
-        strcat(line2, STR_MOINS);;
+        strcat(line2, STR_MINS);;
     }
     strcat(line1, MINS[2]); // TEN TO
   }
 	
  	 else if (minutes < 58) {
     if(hours >= 0 && hours <= 12) {
-        strcat(line2, STR_MOINS);
+        strcat(line2, STR_MINS);
     }
     strcat(line1, MINS[1]); // FIVE TO
   }
@@ -193,30 +193,3 @@ void info_lines(struct tm* t, char* line1, char* line2) {
   strftime(line2, LINE_BUFFER_SIZE, "%H:%M • %B %e", t);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
